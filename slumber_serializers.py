@@ -1,6 +1,6 @@
 import csv
-from StringIO import StringIO
 
+from six import StringIO
 from slumber import serialize
 
 
