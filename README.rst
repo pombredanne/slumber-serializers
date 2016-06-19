@@ -19,3 +19,18 @@ Install package via ``pip``
 ::
 
     pip install slumber-extra
+
+Usage
+=====
+
+::
+
+    import slumber
+    import slumber.serialize
+    from slumber_serializers import CsvSerializer
+
+
+    api = slumber.API('/api/v1/', serializer=slumber.serialize.Serializer(default='csv',
+                                                                          serializers=[CsvSerializer()]),
+                      format='csv')
+    api.test(format='csv').get()
