@@ -1,6 +1,6 @@
+import unicodecsv as csv
 from six import BytesIO
 from slumber import serialize
-from unicodecsv import reader, writer
 
 
 class CsvSerializer(serialize.BaseSerializer):
@@ -9,9 +9,9 @@ class CsvSerializer(serialize.BaseSerializer):
 
     def loads(self, data):
         output = BytesIO(data)
-        return reader(output)
+        return csv.reader(output)
 
     def dumps(self, data):
         output = BytesIO()
-        writer(output).writerows(data)
+        csv.writer(output).writerows(data)
         return output.getvalue()
