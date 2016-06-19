@@ -25,5 +25,5 @@ class SerializerTestCase(unittest.TestCase):
                              "content_type %s should produce a CsvSerializer")
 
         result = serializer.dumps(self.data)
-        self.assertEqual(result, "foo,bar\r\n")
+        self.assertEqual(result, b"foo,bar\r\n")
         self.assertEqual(self.data, list(serializer.loads(result)))

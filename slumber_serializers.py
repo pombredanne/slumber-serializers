@@ -1,4 +1,4 @@
-from six import StringIO
+from six import BytesIO
 from slumber import serialize
 from unicodecsv import reader, writer
 
@@ -8,10 +8,10 @@ class CsvSerializer(serialize.BaseSerializer):
     content_types = ["text/csv"]
 
     def loads(self, data):
-        output = StringIO(data)
+        output = BytesIO(data)
         return reader(output)
 
     def dumps(self, data):
-        output = StringIO()
+        output = BytesIO()
         writer(output).writerows(data)
         return output.getvalue()
