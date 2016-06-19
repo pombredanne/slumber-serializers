@@ -28,5 +28,5 @@ setup(
     ],
     license='MIT',
     py_modules=['slumber_serializers'],
-    install_requires=['slumber', 'six']
+    install_requires=['slumber', 'six', 'unicodecsv']
 )

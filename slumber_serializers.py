@@ -1,7 +1,6 @@
-import csv
-
 from six import StringIO
 from slumber import serialize
+from unicodecsv import reader, writer
 
 
 class CsvSerializer(serialize.BaseSerializer):
@@ -10,8 +9,9 @@ class CsvSerializer(serialize.BaseSerializer):
 
     def loads(self, data):
         output = StringIO(data)
-        csv.reader(output)
-        return output.getvalue()
+        return reader(output)
 
     def dumps(self, data):
-        raise NotImplementedError("CsvSerializer method dumps is not implemented")
+        output = StringIO()
+        writer(output).writerows(data)
+        return output.getvalue()
