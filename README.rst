@@ -2,15 +2,15 @@
 slumber-extra
 =============
 
-A set of Slumber extras
+A set of Slumber serializers
 
-.. image:: https://codeclimate.com/github/tomi77/slumber-extra/badges/gpa.svg
-   :target: https://codeclimate.com/github/tomi77/slumber-extra
+.. image:: https://travis-ci.org/tomi77/slumber-serializers.svg?branch=master
+   :target: https://travis-ci.org/tomi77/slumber-serializers
+.. image:: https://coveralls.io/repos/github/tomi77/slumber-serializers/badge.svg?branch=master
+   :target: https://coveralls.io/github/tomi77/slumber-serializers?branch=master
+.. image:: https://codeclimate.com/github/tomi77/slumber-serializers/badges/gpa.svg
+   :target: https://codeclimate.com/github/tomi77/slumber-serializers
    :alt: Code Climate
-.. image:: https://travis-ci.org/tomi77/slumber-extra.svg?branch=master
-   :target: https://travis-ci.org/tomi77/slumber-extra
-.. image:: https://coveralls.io/repos/github/tomi77/slumber-extra/badge.svg?branch=master
-   :target: https://coveralls.io/github/tomi77/slumber-extra?branch=master
 
 Installation
 ============
@@ -18,7 +18,7 @@ Installation
 Install package via ``pip``
 ::
 
-    pip install slumber-extra
+    pip install slumber-serializers
 
 Usage
 =====
