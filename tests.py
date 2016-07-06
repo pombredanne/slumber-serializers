@@ -5,7 +5,7 @@ import slumber.serialize
 from slumber_serializers import CsvSerializer
 
 
-class SerializerTestCase(unittest.TestCase):
+class CsvSerializerTestCase(unittest.TestCase):
     def setUp(self):
         self.data = [
             [
@@ -13,8 +13,10 @@ class SerializerTestCase(unittest.TestCase):
             ]
         ]
 
-    def test_csv_get_serializer(self):
-        s = slumber.serialize.Serializer(serializers=[CsvSerializer()])
+    def test_csv_serializer(self):
+        s = slumber.serialize.Serializer(serializers=[slumber.serialize.JsonSerializer(),
+                                                      slumber.serialize.YamlSerializer(),
+                                                      CsvSerializer()])
 
         serializer = None
         for content_type in [
@@ -22,7 +24,7 @@ class SerializerTestCase(unittest.TestCase):
         ]:
             serializer = s.get_serializer(content_type=content_type)
             self.assertEqual(type(serializer), CsvSerializer,
-                             "content_type %s should produce a CsvSerializer")
+                             "content_type %s should produce a CsvSerializer" % content_type)
 
         result = serializer.dumps(self.data)
         self.assertEqual(result, b"foo,bar\r\n")
