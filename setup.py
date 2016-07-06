@@ -28,5 +28,6 @@ setup(
     ],
     license='MIT',
     py_modules=['slumber_serializers'],
-    install_requires=['slumber', 'six', 'unicodecsv']
+    install_requires=['slumber', 'six', 'unicodecsv'],
+    test_suite='tests'
 )
