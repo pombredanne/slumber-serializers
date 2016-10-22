@@ -1,15 +1,13 @@
-from codecs import open
-
 from setuptools import setup
 
 setup(
-    name="slumber-serializers",
+    name='slumber-serializers',
     version='0.0.1b1',
     author='Tomasz Jakub Rup',
     author_email='tomasz.rup@gmail.com',
     url='https://github.com/tomi77/slumber-serializers',
     description='A set of Slumber serializers',
-    long_description=open("README.rst").read(),
+    long_description=open('README.rst').read(),
     classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
