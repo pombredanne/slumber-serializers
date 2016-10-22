@@ -9,23 +9,28 @@ class CsvSerializerTestCase(unittest.TestCase):
     def setUp(self):
         self.data = [
             [
-                "foo", "bar"
+                'foo', 'bar'
             ]
         ]
 
-    def test_csv_serializer(self):
-        s = slumber.serialize.Serializer(serializers=[slumber.serialize.JsonSerializer(),
-                                                      slumber.serialize.YamlSerializer(),
-                                                      CsvSerializer()])
+        self.serializers = slumber.serialize.Serializer(serializers=[slumber.serialize.JsonSerializer(),
+                                                                     slumber.serialize.YamlSerializer(),
+                                                                     CsvSerializer()])
 
-        serializer = None
-        for content_type in [
-            "text/csv",
-        ]:
-            serializer = s.get_serializer(content_type=content_type)
-            self.assertEqual(type(serializer), CsvSerializer,
-                             "content_type %s should produce a CsvSerializer" % content_type)
+    def test_get_serializer(self):
+        serializer = self.serializers.get_serializer(content_type='text/csv')
+
+        self.assertEqual(type(serializer), CsvSerializer,
+                         'content_type text/csv should produce a CsvSerializer')
+
+    def test_dumps(self):
+        serializer = self.serializers.get_serializer(content_type='text/csv')
 
         result = serializer.dumps(self.data)
-        self.assertEqual(result, b"foo,bar\r\n")
+        self.assertEqual(result, b'foo,bar\r\n')
+
+    def test_loads(self):
+        serializer = self.serializers.get_serializer(content_type='text/csv')
+        result = b'foo,bar'
+
         self.assertEqual(self.data, list(serializer.loads(result)))

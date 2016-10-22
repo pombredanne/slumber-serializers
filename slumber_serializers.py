@@ -4,8 +4,8 @@ from slumber import serialize
 
 
 class CsvSerializer(serialize.BaseSerializer):
-    key = "csv"
-    content_types = ["text/csv"]
+    key = 'csv'
+    content_types = ['text/csv']
 
     def loads(self, data):
         output = BytesIO(data)
