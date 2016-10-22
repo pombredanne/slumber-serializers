@@ -16,21 +16,22 @@ Installation
 ============
 
 Install package via ``pip``
-::
 
-    pip install slumber-serializers
+.. sourcecode:: sh
+
+   pip install slumber-serializers
 
 Usage
 =====
 
-::
+.. sourcecode:: python
 
-    import slumber
-    import slumber.serialize
-    from slumber_serializers import CsvSerializer
+   import slumber
+   import slumber.serialize
+   from slumber_serializers import CsvSerializer
 
 
-    api = slumber.API('/api/v1/', serializer=slumber.serialize.Serializer(default='csv',
-                                                                          serializers=[CsvSerializer()]),
-                      format='csv')
-    api.test(format='csv').get()
+   api = slumber.API('/api/v1/', serializer=slumber.serialize.Serializer(default='csv',
+                                                                         serializers=[CsvSerializer()]),
+                     format='csv')
+   api.test(format='csv').get()
