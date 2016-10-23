@@ -35,3 +35,16 @@ Usage
                                                                          serializers=[CsvSerializer()]),
                      format='csv')
    api.test(format='csv').get()
+
+Available serializers
+=====================
+
+CSV serializer
+--------------
+
+Serialize to and deserialize from CSV.
+
+Binary serializer
+-----------------
+
+Serialize to and deserialize from any binary format.
