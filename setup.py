@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='slumber-serializers',
-    version='0.0.1b1',
+    version='0.1.0',
     author='Tomasz Jakub Rup',
     author_email='tomasz.rup@gmail.com',
     url='https://github.com/tomi77/slumber-serializers',
